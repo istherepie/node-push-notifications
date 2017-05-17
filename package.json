@@ -5,14 +5,38 @@
   "main": "server.js",
   "scripts": {
     "start": "NODE_PATH=. node server.js",
+    "dev": "cross-env NODE_ENV=development webpack --progress --hide-modules -w",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["nodejs", "sse", "push", "notification"],
+  "keywords": [
+    "nodejs",
+    "sse",
+    "push",
+    "notification"
+  ],
   "author": "Steffen Park <dev@istherepie.com>",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.16.1",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
-    "redis": "^2.7.1"
+    "redis": "^2.7.1",
+    "vue": "^2.3.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.0.0",
+    "babel-loader": "^6.0.0",
+    "babel-preset-latest": "^6.0.0",
+    "cross-env": "^3.0.0",
+    "css-loader": "^0.25.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "rupture": "^0.6.2",
+    "style-loader": "^0.16.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
+    "vue-loader": "^11.1.4",
+    "vue-template-compiler": "^2.2.1",
+    "webpack": "^2.2.0"
   }
 }
