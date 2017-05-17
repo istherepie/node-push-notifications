@@ -57,6 +57,9 @@ router.use((req, res, next) => {
 		// Get missed notifications from redis
 		req.store.mget(missed, (err, results) => {
 
+			if ( !results ) {
+				return next()
+			}
 			// Close connection
 			req.store.quit()
 
@@ -67,6 +70,7 @@ router.use((req, res, next) => {
 			results.forEach(result => {
 				res.write(`data: ${result}\n\n`)
 			})
+			next()
 		})
 	})
 })
