@@ -1,0 +1,18 @@
+{
+  "name": "push-service",
+  "version": "1.0.0",
+  "description": "Building a simple one dirctional push service in NodeJS leveraging Server-Sent-Events rather than websockets. (Proof of concept)",
+  "main": "server.js",
+  "scripts": {
+    "start": "NODE_PATH=. node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["nodejs", "sse", "push", "notification"],
+  "author": "Steffen Park <dev@istherepie.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "redis": "^2.7.1"
+  }
+}

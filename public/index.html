@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>boilerplate</title>
+</head>
+<body>
+  <h4>Notifications:</h4>
+  <div id="notificiations">
+  </div>
+  <script>
+  	let source = new EventSource('/service')
+    let notificiations = document.getElementById('notificiations')
+
+    source.addEventListener('open', function(message) {
+      console.log('Connected')
+    }, false)
+
+  	source.addEventListener('message', function(message) {
+      let notification = document.createElement('p')
+      notification.innerHTML = message.data
+  		notificiations.append(notification)
+  	}, false)
+  	
+  	source.addEventListener('error', function(e) {
+  		console.log('Disconnected')
+    }, false)
+  </script>
+</body>
+</html>
