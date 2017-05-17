@@ -46,5 +46,12 @@ new Vue({
 		service.addEventListener('error', error => {
 			this.connection = false
 		}, false)
+
+    // Listen for enter keyup
+    window.addEventListener('keyup', event => {
+      if ( event.keyCode === 13) {
+        this.sendNotification()
+      }
+    })
   }
 })
