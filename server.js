@@ -12,6 +12,7 @@ const redis = require('redis')
 const app = express()
 const server = http.createServer(app)
 const client = redis.createClient()
+const port = process.env.SERVER_PORT || 3000
 
 // Set sequence if it does not exist
 client.setnx('sequence', 0)
@@ -26,6 +27,6 @@ app.use('/api', api)
 app.use('/service', service)
 
 // Start server
-server.listen(3000, function() {
+server.listen(port, function() {
 	console.log('Server is fully armed and operational on port: 3000')
 })
