@@ -18,7 +18,7 @@ client.setnx('sequence', 0)
 client.quit()
 
 // Middleware
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 
 // Routes
 app.use('/', express.static('public'))
