@@ -4,29 +4,41 @@
   <meta charset="utf-8" />
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>boilerplate</title>
+  <title>Push Notifications</title>
+  <link rel="stylesheet" href="/css/app.css" />  
 </head>
 <body>
-  <h4>Notifications:</h4>
-  <div id="notificiations">
-  </div>
-  <script>
-  	let source = new EventSource('/service')
-    let notificiations = document.getElementById('notificiations')
 
-    source.addEventListener('open', function(message) {
-      console.log('Connected')
-    }, false)
+  <main id="root">
 
-  	source.addEventListener('message', function(message) {
-      let notification = document.createElement('p')
-      notification.innerHTML = message.data
-  		notificiations.append(notification)
-  	}, false)
-  	
-  	source.addEventListener('error', function(e) {
-  		console.log('Disconnected')
-    }, false)
-  </script>
+    <aside class="notifications">
+      <transition-group name="pop" tag="p">
+        <div class="notification" v-for="notification in notifications" :key="notification.time">
+            {{ notification.data }}
+        </div>
+         </transition-group>
+    </aside>
+
+    <section class="absolute-center">   
+
+      <div class="info">
+        <div class="logo">
+          <img src="/img/notification.svg">
+          <h1>{{ title }}</h1>
+          <h5 v-show="connection">Connected!</h5>
+        </div>
+
+        <div class="form-box">
+          <input v-model="message" :placeholder="placeholder" autofocus>
+          <button class="button" @click="sendNotification()">Send</button>
+        </div>
+      </div>
+
+    </section>
+
+
+  </main>
+
+  <script src="/js/app.js"></script>
 </body>
 </html>
