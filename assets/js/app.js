@@ -11,7 +11,7 @@ new Vue({
   	notifications: []
   },
   methods: {
-  	sendNotification() {
+  	sendNotification: function() {
   		axios.put('/api/push', {
 		    notification: this.message
 		  })
@@ -23,7 +23,7 @@ new Vue({
 		    console.log(error)
 		  })
   	},
-    trimmer() {
+    trimmer: function() {
       this.notifications.splice(-1, 1)
     }
   },
