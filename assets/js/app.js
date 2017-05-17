@@ -11,7 +11,7 @@ new Vue({
   	notifications: []
   },
   methods: {
-  	sendNotification() {
+  	sendNotification: function() {
   		axios.put('/api/push', {
 		    notification: this.message
 		  })
@@ -23,7 +23,7 @@ new Vue({
 		    console.log(error)
 		  })
   	},
-    trimmer() {
+    trimmer: function() {
       this.notifications.splice(-1, 1)
     }
   },
@@ -46,5 +46,12 @@ new Vue({
 		service.addEventListener('error', error => {
 			this.connection = false
 		}, false)
+
+    // Listen for enter keyup
+    window.addEventListener('keyup', event => {
+      if ( event.keyCode === 13) {
+        this.sendNotification()
+      }
+    })
   }
 })
