@@ -8,11 +8,11 @@ const redis = require('redis')
 const ttl = 60 * 60	// Time to live for expiring key value pairs
 
 // API routes
-router.post('/push', function(req, res, next) {
+router.put('/push', function(req, res, next) {
 
 	// If notification does not exist, abort
 	if ( !req.body.notification ) {
-		return res.status(404).json({ error: 'Request invalid' })
+		return res.status(401).json({ error: 'Request invalid' })
 	}
 	
 	// Initialize redis
