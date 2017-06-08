@@ -16,6 +16,10 @@
     "notification"
   ],
   "author": "Steffen Park <dev@istherepie.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/istherepie/push-notifications"
+  },
   "license": "MIT",
   "dependencies": {
     "axios": "^0.16.1",
