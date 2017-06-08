@@ -23,10 +23,13 @@ app.use(bodyParser.json())
 
 // Routes
 app.use('/', express.static('public'))
+app.get('/', (req, res) => {
+	res.sendFile(__dirname + '/views/index.html')
+})
 app.use('/api', api)
 app.use('/service', service)
 
 // Start server
 server.listen(port, function() {
-	console.log('Server is fully armed and operational on port: 3000')
+	console.log('Server is fully armed and operational on port: ' + port)
 })
