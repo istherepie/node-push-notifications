@@ -18,7 +18,7 @@
   "author": "Steffen Park <dev@istherepie.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/istherepie/push-notifications"
+    "url": "https://github.com/istherepie/node-push-notifications"
   },
   "license": "MIT",
   "dependencies": {
