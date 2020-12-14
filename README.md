@@ -1,7 +1,8 @@
 # Push Notifications (SSE)
-DEMO: https://pushnotifications.istherepie.com
+
+**This project is old and will be replaced soon**
 
 Building a simple one directional push service in NodeJS leveraging Server-Sent-Events rather than websockets. 
 
 ## TODO
-A lot of frontend stuff
+I may update this to a more current version ?
